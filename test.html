@@ -28,6 +28,7 @@
               <div class="progress-bar-inner" id="progress-bar"></div>
             </div>
             <span class="progress-text" id="progress-text">1 / 28</span>
+            <button type="button" class="btn-answer-popup" id="btn-answer-popup" aria-label="선택 현황 보기">선택 현황</button>
           </div>
           <div class="question-content">
             <h2 class="question-text" id="question-text"></h2>
@@ -40,10 +41,15 @@
             <button type="button" class="btn btn-primary" id="btn-next">다음</button>
           </div>
         </div>
-        <aside class="answer-panel" aria-label="문항별 선택 현황">
-          <div class="answer-panel-title">선택 현황 <span class="answer-panel-count" id="answer-panel-count"></span></div>
-          <div class="answer-panel-groups" id="answer-grid"></div>
-        </aside>
+      </div>
+      <div class="answer-popup-overlay" id="answer-popup-overlay" aria-hidden="true">
+        <div class="answer-popup" role="dialog" aria-label="선택 현황">
+          <div class="answer-popup-header">
+            <span class="answer-panel-title">선택 현황 <span class="answer-panel-count" id="answer-panel-count"></span></span>
+            <button type="button" class="answer-popup-close" id="answer-popup-close" aria-label="닫기">닫기</button>
+          </div>
+          <div class="answer-panel-groups answer-popup-groups" id="answer-grid"></div>
+        </div>
       </div>
     </section>
 

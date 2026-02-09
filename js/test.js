@@ -228,7 +228,12 @@
         cell.setAttribute('data-index', i);
         cell.textContent = state.answers[i] != null ? state.answers[i] : '－';
         cell.title = (i + 1) + '번 ' + (state.answers[i] != null ? state.answers[i] + '점' : '미응답');
-        cell.addEventListener('click', (function (idx) { return function () { goToQuestion(idx); }; })(i));
+        cell.addEventListener('click', (function (idx) {
+          return function () {
+            goToQuestion(idx);
+            closeAnswerPopup();
+          };
+        })(i));
         cellsWrap.appendChild(cell);
       }
       group.appendChild(cellsWrap);
@@ -352,8 +357,40 @@
     }
   }
 
+  function openAnswerPopup() {
+    var overlay = document.getElementById('answer-popup-overlay');
+    if (overlay) {
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  function closeAnswerPopup() {
+    var overlay = document.getElementById('answer-popup-overlay');
+    if (overlay) {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+  }
+
   function init() {
     document.body.addEventListener('click', function (e) {
+      if (e.target.closest('#btn-answer-popup')) {
+        e.preventDefault();
+        renderAnswerPanel();
+        openAnswerPopup();
+        return;
+      }
+      if (e.target.closest('#answer-popup-close')) {
+        e.preventDefault();
+        closeAnswerPopup();
+        return;
+      }
+      if (e.target.id === 'answer-popup-overlay') {
+        e.preventDefault();
+        closeAnswerPopup();
+        return;
+      }
       if (e.target.closest('#btn-quit')) {
         e.preventDefault();
         quitTest();
