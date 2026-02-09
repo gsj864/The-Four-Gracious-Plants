@@ -346,36 +346,6 @@
     });
   }
 
-  function shareResult() {
-    var titleEl = document.getElementById('result-title');
-    var subtitleEl = document.getElementById('result-subtitle');
-    var title = titleEl ? titleEl.textContent : '';
-    var subtitle = subtitleEl ? subtitleEl.textContent : '';
-    var text = '사군자 기질 검사 결과: ' + title + ' - ' + subtitle + '\n나도 검사해보기!';
-    var url = window.location.origin + window.location.pathname.replace('test.html', 'index.html');
-
-    if (navigator.share && navigator.canShare && navigator.canShare({ title: document.title, text: text, url: url })) {
-      navigator.share({ title: document.title, text: text, url: url }).catch(function () {
-        copyToClipboard(text + ' ' + url);
-      });
-    } else {
-      copyToClipboard(text + ' ' + url);
-    }
-  }
-
-  function copyToClipboard(str) {
-    navigator.clipboard.writeText(str).then(function () {
-      var btn = document.getElementById('btn-share');
-      if (btn) {
-        var orig = btn.textContent;
-        btn.textContent = '복사됨!';
-        setTimeout(function () { btn.textContent = orig; }, 2000);
-      }
-    }).catch(function () {
-      alert('결과를 복사하려면 주소를 직접 복사해 주세요.');
-    });
-  }
-
   function quitTest() {
     if (confirm('검사를 중단하고 메인으로 돌아가시겠습니까?')) {
       window.location.href = 'index.html';
@@ -404,10 +374,6 @@
           showResult();
         }
         return;
-      }
-      if (e.target.closest('#btn-share')) {
-        e.preventDefault();
-        shareResult();
       }
     });
     document.body.classList.add('question-screen-active');
