@@ -547,8 +547,14 @@ a.btn {
     margin-bottom: 12px;
   }
   .answer-panel-groups {
-    gap: 12px 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 12px 0;
   }
+  .answer-panel-groups .answer-type-group:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .answer-panel-groups .answer-type-group:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .answer-panel-groups .answer-type-group:nth-child(3) { grid-column: 1; grid-row: 3; }
+  .answer-panel-groups .answer-type-group:nth-child(4) { grid-column: 1; grid-row: 4; }
   .answer-type-group {
     flex-direction: row;
     flex: 0 0 auto;
