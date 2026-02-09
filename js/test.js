@@ -326,10 +326,10 @@
     sorted.forEach(function (item) {
       var pct = totalMax === 0 ? 0 : Math.round((item.score / totalMax) * 100);
       var wrap = document.createElement('div');
-      wrap.className = 'score-bar-wrap';
+      wrap.className = 'score-bar-wrap score-bar-' + item.key;
       wrap.innerHTML =
         '<span class="score-label">' + item.name + '</span>' +
-        '<div class="score-bar-bg"><div class="score-bar-fill" style="width:0%;background:' + item.color + '" data-pct="' + pct + '"></div></div>' +
+        '<div class="score-bar-bg"><div class="score-bar-fill" style="width:0%" data-pct="' + pct + '"></div></div>' +
         '<span class="score-pct">' + pct + '%</span>';
       scoresEl.appendChild(wrap);
     });

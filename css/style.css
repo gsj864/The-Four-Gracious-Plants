@@ -812,6 +812,16 @@ a.btn {
   transition: width 0.6s ease;
 }
 
+.score-bar-maehwa .score-bar-fill { background: #ff6b9d; }
+.score-bar-orchid .score-bar-fill { background: #00d4ff; }
+.score-bar-chrysanthemum .score-bar-fill { background: #ffeb00; }
+.score-bar-bamboo .score-bar-fill { background: #7cfc00; }
+
+html.dark .score-bar-maehwa .score-bar-fill { background: #ff7bac; }
+html.dark .score-bar-orchid .score-bar-fill { background: #00e0ff; }
+html.dark .score-bar-chrysanthemum .score-bar-fill { background: #fff200; }
+html.dark .score-bar-bamboo .score-bar-fill { background: #8cff20; }
+
 .score-pct {
   flex: 0 0 40px;
   font-size: 0.875rem;

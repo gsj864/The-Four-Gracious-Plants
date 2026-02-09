@@ -55,6 +55,4 @@ tfgp/
 - HTML5, CSS3 (모바일 우선 반응형), Vanilla JavaScript
 - 서버·DB·로그인 없음 (프론트 전용)
 
-## 브라우저
-
-최신 Chrome, Safari, Edge, Firefox (모바일 포함) 권장.
+## 브라우저최신 Chrome, Safari, Edge, Firefox (모바일 포함) 권장.
